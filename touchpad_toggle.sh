@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # xinput list
-device=`xinput list --short | grep 'DLLC.*Touchpad' | sed 's/.*id=\([0-9]*\).*/\1/'`
+device=`xinput list --short | grep 'DELL0767' | sed 's/.*id=\([0-9]*\).*/\1/'`
 state=`xinput list-props "$device" | grep "Device Enabled" | grep -o "[01]$"`
 
 if [ $state == '1' ];then
