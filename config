@@ -301,7 +301,7 @@ bindsym XF86MonBrightnessDown exec ~/.i3/decrease_brightness.sh
 bindsym XF86MonBrightnessUp exec ~/.i3/increase_brightness.sh
 
 # move any window to the current workspace
-bindsym F8 exec python ~/.i3/quickswitch.py
+bindsym F8 exec python3 ~/.i3/quickswitch-for-i3/quickswitch.py -m
 
 # toggle touchpad
 bindsym $mod+s exec ~/.i3/touchpad_toggle.sh
