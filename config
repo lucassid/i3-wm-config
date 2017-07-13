@@ -247,7 +247,7 @@ mode "workspace" {
 # finds out, if available)
 bar {
     status_command i3blocks -c ~/.i3/i3blocks.conf
-    tray_output eDP-1 
+    tray_output HDMI-1
     position top
     colors {
       separator          #666666
@@ -317,6 +317,7 @@ exec --no-startup-id cinnamon-settings sound
 exec --no-startup-id nm-applet
 exec --no-startup-id terminator
 exec --no-startup-id slack
+exec --no-startup-id rescuetime
 
 popup_during_fullscreen leave_fullscreen
 show_marks yes
