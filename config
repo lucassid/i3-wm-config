@@ -16,9 +16,9 @@ workspace_auto_back_and_forth yes
 
 # window (client) colors
 # class                 border  backgr. text    indicator
-client.focused          #0088CC #0088CC #ffffff #dddddd
-client.focused_inactive #333333 #333333 #888888 #292d2e
-client.unfocused        #333333 #333333 #888888 #292d2e
+client.focused          #000000 #0088CC #ffffff #dddddd
+client.focused_inactive #000000 #333333 #888888 #292d2e
+client.unfocused        #000000 #333333 #888888 #292d2e
 client.urgent           #2f343a #900000 #ffffff #900000
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -35,7 +35,7 @@ focus_follows_mouse yes
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec terminator
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym F4 kill
@@ -247,7 +247,7 @@ mode "workspace" {
 # finds out, if available)
 bar {
     status_command i3blocks -c ~/.i3/i3blocks.conf
-    tray_output HDMI-1
+    tray_output primary
     position top
     colors {
       separator          #666666
@@ -307,7 +307,10 @@ bindsym F8 exec python3 ~/.i3/quickswitch-for-i3/quickswitch.py -m
 bindsym $mod+s exec ~/.i3/touchpad_toggle.sh
 
 # create initial workspaces
-exec --no-startup-id ~/.i3/i3-project-focus-workflow/newProjectWorkspaces.py default
+exec --no-startup-id ~/.i3/i3-wm-multi-disp-scripts/newProjectWorkspaces.py default
+
+# small window for videos
+bindsym $mod+y fullscreen disable; floating enable; resize set 422 240; sticky enable; move position 870 25
 
 # start applications
 exec --no-startup-id google-chrome
@@ -315,7 +318,7 @@ exec --no-startup-id numlockx on
 exec --no-startup-id dropbox start
 exec --no-startup-id cinnamon-settings sound
 exec --no-startup-id nm-applet
-exec --no-startup-id terminator
+exec --no-startup-id alacritty
 exec --no-startup-id slack
 exec --no-startup-id rescuetime
 
@@ -350,4 +353,7 @@ for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title
 
 # solid wallpaper
 exec --no-startup-id xsetroot -solid "#333333"
+
+# compton
+exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config
 
