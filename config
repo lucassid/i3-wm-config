@@ -122,6 +122,7 @@ bindsym $mod+Shift+0    move container to workspace number 0
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
+
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
@@ -274,7 +275,7 @@ hide_edge_borders none
 bindsym $mod+x border toggle
 
 # window border size
-new_window pixel 1
+new_window pixel 3
 
 # Lock the system
 bindsym $mod+l exec i3lock -i ~/.i3/i3-lock-screen.png -t -f
@@ -319,7 +320,6 @@ exec --no-startup-id dropbox start
 exec --no-startup-id cinnamon-settings sound
 exec --no-startup-id nm-applet
 exec --no-startup-id alacritty
-exec --no-startup-id slack
 exec --no-startup-id rescuetime
 
 popup_during_fullscreen leave_fullscreen
@@ -349,11 +349,7 @@ for_window [class="^chromium-browser$"]    title_format "Chromium ....... %title
 for_window [class="^google-chrome$"]       title_format "Chrome ......... %title"
 for_window [class="^qBittorrent$"]         title_format "Torrents ....... %title"
 for_window [class="^qbittorrent$"]         title_format "Torrents ....... %title"
-for_window [class="^workbench-WbStarter$"] title_format "SQLWorkbench ... %title"
 
 # solid wallpaper
 exec --no-startup-id xsetroot -solid "#333333"
-
-# compton
-exec --no-startup-id compton --opacity-rule '100:window_type = "dock" && class_g = "i3bar"' --config
 
